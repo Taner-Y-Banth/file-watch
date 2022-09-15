@@ -9,7 +9,6 @@ const wsUrl = argv.wsUrl;
 
 const nstClient = new NstrumentaClient();
 
-const completed = [];
 const directory = '../stable-diffusion-nst/stable-diffusion/outputs/txt2img-samples'
 
 let timeoutID = undefined
@@ -25,11 +24,12 @@ fs.watch(directory, (eventType, filename) => {
     }
 
     timeoutID = setTimeout( async () => {
-      completed.push(filename);
+
       console.log(`filename provided: ${filename}`);
       const buff = await readFile(`${directory}/${filename}`);
       nstClient.sendBuffer('postprocessing', buff);
       console.log('nstClient Sent Buffer')
+      
     }, 400)
   }
 }),
