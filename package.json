@@ -1,0 +1,12 @@
+{
+    "type": "module",
+    "dependencies": {
+      "minimist": "^1.2.5",
+      "nstrumenta": "^3.0.22",
+      "ws": "^8.4.2"
+    },
+    "scripts": {
+      "start": "node index.js"
+    }
+  }
+  
